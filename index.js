@@ -1381,6 +1381,19 @@ client.on('group-participants-update', async (anu) => {
 					buffer = await getBuffer(`https://i.imgur.com/Sy9K8m6.jpg`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '*VIDEOS MIA KHALIFA:*\n(o adm liberou taok)\n\nxvideos.com/pornstar-channels/mia-khalifa '})
 					break
+					case 'porn':
+                if (!isRegistered) return reply(ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+                   if (!isGroup) return reply(ind.groupo())
+                   if (!isNsfw) return reply(ind.nsfwoff())
+					anu = await fetchJson(`https://i.imgur.com/Sy9K8m6.jpg`, {method: 'get'})
+					reply(ind.wait())
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					await limitAdd(sender)
+					break
 					case 'gado':
 					if (!isRegistered) return reply(ind.noregis())
           if (args.length < 1) return reply('*Um gado foi detectado! Cuidado, ele não pode ver uma mulher!* 🐂')
